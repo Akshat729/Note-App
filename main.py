@@ -17,6 +17,10 @@ conn = MongoClient(os.getenv("MONGODB_URI"))
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     docs = conn.notes.notes.find({})
+    showDocs = []
     for doc in docs:
-        print(doc)
-    return templates.TemplateResponse("index.html", {"request": request})
+        showDocs.append({
+            "id": doc["_id"],
+            "note": doc["note"],
+        })
+    return templates.TemplateResponse("index.html", {"request": request, "showDocs": showDocs})
