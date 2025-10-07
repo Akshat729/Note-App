@@ -10,6 +10,7 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="../static/style.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -52,27 +53,42 @@
 
     <div class="container">
       <h1>Add Note</h1>
-      <form method="post">
+      <form action="/" method="post">
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control" id="title" />
+          <input type="text" name="title" class="form-control" id="title" />
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <textarea class="form-control" id="description" rows="3"></textarea>
+          <textarea
+            class="form-control"
+            name="description"
+            id="description"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="important"
+            id="important"
+          />
+          <label class="form-check-label" for="important">Is Important</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+
+      <h1>My Notes</h1>
       {% for doc in showDocs %}
-      <div class="mb-3" style="margin-top: 20px">
-        <input
-          class="form-control"
-          type="text"
-          name="note"
-          value="{{ doc.note }}"
-          disabled
-          readonly
-        />
+      <div class="card" style="width: 18rem; margin: 15px 0 15px 0">
+        <div class="card-body">
+          <h5 class="card-title">{{ doc.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-danger">
+            {% if doc.important=="true" %} Important {% endif %}
+          </h6>
+          <p class="card-text">{{ doc.description }}</p>
+        </div>
       </div>
       {% endfor %}
     </div>
