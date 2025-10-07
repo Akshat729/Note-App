@@ -29,4 +29,4 @@ async def add_note(request: Request):
     formDict = dict(form)
     formDict["important"] = "true" if formDict.get("important") == "on" else "false"
     note = conn.notes.notes.insert_one(formDict)
-    return {"Success": True}
+    return {"msg": "Note added successfully"}
