@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
-
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
@@ -8,5 +9,18 @@ from pymongo import MongoClient
 load_dotenv()
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates  =  Jinja2Templates(directory="templates")
 
 conn = MongoClient(os.getenv("MONGODB_URI"))
+
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    docs = conn.notes.notes.find({})
+    showDocs = []
+    for doc in docs:
+        showDocs.append({
+            "id": doc["_id"],
+            "note": doc["note"],
+        })
+    return templates.TemplateResponse("index.html", {"request": request, "showDocs": showDocs})
