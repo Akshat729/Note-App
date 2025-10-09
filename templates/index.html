@@ -88,6 +88,8 @@
             {% if doc.important=="true" %} Important {% endif %}
           </h6>
           <p class="card-text">{{ doc.description }}</p>
+          <button type="button" class="btn btn-primary">Edit</button>
+          <button type="button" class="btn btn-danger">Delete</button>
         </div>
       </div>
       {% endfor %}
