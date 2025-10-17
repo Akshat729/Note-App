@@ -80,7 +80,7 @@
       </form>
 
       <h1>My Notes</h1>
-      {% for doc in showDocs %}
+      {% if showDocs %} {% for doc in showDocs %}
       <div class="card" style="width: 18rem; margin: 15px 0 15px 0">
         <div class="card-body">
           <h5 class="card-title">{{ doc.title }}</h5>
@@ -88,11 +88,36 @@
             {% if doc.important=="true" %} Important {% endif %}
           </h6>
           <p class="card-text">{{ doc.description }}</p>
-          <button type="button" class="btn btn-primary">Edit</button>
-          <button type="button" class="btn btn-danger">Delete</button>
+          <a href="/edit/{{ doc.id }}" class="btn btn-primary">Edit</a>
+          <a
+            href="/delete/{{ doc.id }}"
+            class="btn btn-danger"
+            onclick="return confirm('Delete this note?')"
+            >Delete</a
+          >
         </div>
       </div>
-      {% endfor %}
+      {% endfor %} {% else %}
+      <p>No notes yet. Create one above!</p>
+      {% endif %}
+    </div>
+    {% if edit_note %}
+    <div class="container">
+      <form action="/update/{{ edit_note.id }}" method="post">
+        <h3>Editing Note</h3>
+        <input
+          type="text"
+          name="title"
+          value="{{ edit_note.title }}"
+          required
+        />
+        <textarea name="content" required>
+ {{ edit_note.description }} </textarea
+        >
+        <button type="submit">Save Changes</button>
+        <a href="/" class="cancel-btn">Cancel</a>
+      </form>
+      {% endif %}
     </div>
 
     <script
