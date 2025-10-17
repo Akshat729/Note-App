@@ -51,6 +51,30 @@
       </div>
     </nav>
 
+    {% if edit_note %}
+    <div class="container">
+      <form action="/update/{{ edit_note.id }}" method="post">
+        <h3>Editing Note</h3>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            name="title"
+            class="form-control"
+            value="{{edit_note.title}}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" rows="3">
+ {{ edit_note.description }}</textarea
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="/" class="btn btn-danger">Cancel</a>
+      </form>
+    </div>
+    {% else %}
     <div class="container">
       <h1>Add Note</h1>
       <form action="/" method="post">
@@ -101,25 +125,7 @@
       <p>No notes yet. Create one above!</p>
       {% endif %}
     </div>
-    {% if edit_note %}
-    <div class="container">
-      <form action="/update/{{ edit_note.id }}" method="post">
-        <h3>Editing Note</h3>
-        <input
-          type="text"
-          name="title"
-          value="{{ edit_note.title }}"
-          required
-        />
-        <textarea name="content" required>
- {{ edit_note.description }} </textarea
-        >
-        <button type="submit">Save Changes</button>
-        <a href="/" class="cancel-btn">Cancel</a>
-      </form>
-      {% endif %}
-    </div>
-
+    {% endif %}
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
