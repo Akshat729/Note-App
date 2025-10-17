@@ -38,4 +38,7 @@ async def delete_note(note_id: str):
 
 @noteRouter.get("/edit/{note_id}")
 async def edit_note(request: Request, note_id: str):
-    pass
+    notes_cursor = collection.find({})
+    notes = notes_cursor.to_list(length=100)
+    note = collection.find_one({"_id": ObjectId(note_id)})
+    return templates.TemplateResponse("index.html", {"request": request, "notes": notes, "edit_note": note})
