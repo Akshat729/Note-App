@@ -1,12 +1,7 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
-
-import os
-from dotenv import load_dotenv
-from pymongo import MongoClient
-
-load_dotenv()
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from routes.note import noteRouter
 
 app = FastAPI()
-
-conn = MongoClient(os.getenv("MONGODB_URI"))
+app.mount("/static", StaticFiles(directory="static"), name="static")
+app.include_router(noteRouter)
