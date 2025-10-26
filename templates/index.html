@@ -62,11 +62,12 @@
             name="title"
             class="form-control"
             value="{{edit_note.title}}"
+            required
           />
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <textarea class="form-control" rows="3" name="description">
+          <textarea class="form-control" rows="3" name="description" required>
  {{ edit_note.description }}</textarea
           >
         </div>
@@ -80,7 +81,13 @@
       <form action="/" method="post">
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
-          <input type="text" name="title" class="form-control" id="title" />
+          <input
+            type="text"
+            name="title"
+            class="form-control"
+            id="title"
+            required
+          />
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
@@ -89,6 +96,7 @@
             name="description"
             id="description"
             rows="3"
+            required
           ></textarea>
         </div>
         <div class="mb-3 form-check">
