@@ -28,7 +28,7 @@ async def add_note(request: Request):
     formDict = dict(form)
     formDict["important"] = "true" if formDict.get("important") == "on" else "false"
     note = collection.insert_one(formDict)
-    return RedirectResponse("/", status_code=201)
+    return RedirectResponse("/", status_code=303)
 
 @noteRouter.get("/delete/{note_id}")
 def delete_note(note_id: str):
