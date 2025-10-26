@@ -1,8 +1,7 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Request, Form
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from config.db import conn
-from schemas.note import noteEntity, notesEntity
 from bson import ObjectId
 
 
@@ -29,16 +28,21 @@ async def add_note(request: Request):
     formDict = dict(form)
     formDict["important"] = "true" if formDict.get("important") == "on" else "false"
     note = collection.insert_one(formDict)
-    return {"msg": "Note added successfully"}
+    return RedirectResponse("/", status_code=201)
 
 @noteRouter.get("/delete/{note_id}")
-async def delete_note(note_id: str):
+def delete_note(note_id: str):
     note = collection.delete_one({"_id": ObjectId(note_id)})
     return RedirectResponse("/", status_code=303)
 
 @noteRouter.get("/edit/{note_id}")
-async def edit_note(request: Request, note_id: str):
+def edit_note(request: Request, note_id: str):
     notes_cursor = collection.find({})
     notes = notes_cursor.to_list(length=100)
     note = collection.find_one({"_id": ObjectId(note_id)})
     return templates.TemplateResponse("index.html", {"request": request, "notes": notes, "edit_note": note})
+
+@noteRouter.post("/update/{note_id}")
+def update_note(note_id: str, title: str = Form(...), description: str = Form(...)):
+    result = collection.update_one({"_id": ObjectId(note_id)}, {"$set": {"title": title, "description": description}})
+    return RedirectResponse(url="/?updated=true", status_code=303)
