@@ -65,7 +65,11 @@ pymongo
 👨‍💻 Author
 
 Akshat Rastogi
+
 💼 Python Developer
+
 📍 Mumbai, India
+
 📧 akshatrastogi09@gmail.com
+
 🌐 [LinkedIn](https://www.linkedin.com/in/akshat-rastogi-83a347178/)
