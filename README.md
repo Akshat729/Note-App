@@ -6,11 +6,18 @@ It demonstrates full-stack development with server-side rendering, form handling
 🚀 Features
 
 ➕ Add Note — Create new notes with title and description
+
 ✏️ Edit Note — Update an existing note on the same page
+
 ❌ Delete Note — Remove unwanted notes from the database
+
 👀 View Notes — Display all notes on a clean UI
+
 💬 Pop-up Notifications — Shows success messages for actions like Add, Update, and Delete
+
 ⚡ Responsive Design using Bootstrap
+
+
 
 | Component        | Technology                  |
 | ---------------- | --------------------------- |
@@ -21,25 +28,44 @@ It demonstrates full-stack development with server-side rendering, form handling
 | **Language**     | Python 3.x                  |
 
 
+
 📂 Project Structure
 
 Note-App/
+
 │
+
 ├── main.py
+
 ├── config/
+
 │   └── db.py
+
 ├── models/
+
 │   └── note.py
+
 ├── routes/
+
 │   └── note.py
+
 ├── schemas/
+
 │   └── note.py
+
 ├── templates/
+
 │   └── index.html
+
 ├── static/
+
 │   └── style.css
+
 ├── requirements.txt
+
 └── README.md
+
+
 
 🧰 Requirements
 
@@ -51,6 +77,8 @@ Uvicorn
 python-dotenv
 pymongo
 
+
+
 📜 API Endpoints
 
 | Method | Endpoint            | Description         |
@@ -60,6 +88,8 @@ pymongo
 | `GET`  | `/edit/{note_id}`   | Open note edit page |
 | `POST` | `/update/{note_id}` | Update note         |
 | `GET`  | `/delete/{note_id}` | Delete note         |
+
+
 
 
 👨‍💻 Author
