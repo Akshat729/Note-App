@@ -1,10 +1,10 @@
-##📝 Notes App — FastAPI, MongoDB & Jinja2
+## 📝 Notes App — FastAPI, MongoDB & Jinja2
 
 A simple and lightweight CRUD (Create, Read, Update, Delete) Notes application built using FastAPI, MongoDB, and Jinja2 templates.
 It demonstrates full-stack development with server-side rendering, form handling, and database operations.
 
 <br>
-###🚀 Features
+### 🚀 Features
 
 ➕ Add Note — Create new notes with title and description
 
@@ -30,7 +30,7 @@ It demonstrates full-stack development with server-side rendering, form handling
 
 
 <br>
-###📂 Project Structure
+### 📂 Project Structure
 
 Note-App/
 
@@ -68,19 +68,25 @@ Note-App/
 
 
 <br>
-###🧰 Requirements
+### 🧰 Requirements
 
 Python 3.8+
+
 MongoDB running locally or cloud (e.g., MongoDB Atlas)
+
 FastAPI
+
 Jinja2
+
 Uvicorn
+
 python-dotenv
+
 pymongo
 
 
 <br>
-###📜 API Endpoints
+### 📜 API Endpoints
 
 | Method | Endpoint            | Description         |
 | ------ | ------------------- | ------------------- |
@@ -93,7 +99,7 @@ pymongo
 
 
 <br>
-###👨‍💻 Author
+### 👨‍💻 Author
 
 Akshat Rastogi
 
