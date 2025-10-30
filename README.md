@@ -31,14 +31,11 @@ Users can **create**, **edit**, **delete**, and **view** notes directly from the
 
 ## 📦 Installation
 
-
-## 📦 Installation
-
 Follow these steps to set up the project locally 👇
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/yourusername/fastapi-notes-app.git
+git clone https://github.com/Akshat729/Note-App.git
 cd fastapi-notes-app
 ```
 
