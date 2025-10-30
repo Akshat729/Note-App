@@ -1,24 +1,23 @@
-## 📝 Notes App — FastAPI, MongoDB & Jinja2
+# 📝 FastAPI Notes App
 
-A simple and lightweight CRUD (Create, Read, Update, Delete) Notes application built using FastAPI, MongoDB, and Jinja2 templates.
-It demonstrates full-stack development with server-side rendering, form handling, and database operations.
+A simple and efficient **Note Taking Application** built using **FastAPI**, **MongoDB**, and **Jinja2** templates.  
+Users can **create**, **edit**, **delete**, and **view** notes directly from the web interface.  
 
-<br>
-### 🚀 Features
+---
 
-➕ Add Note — Create new notes with title and description
+## 🚀 Features
 
-✏️ Edit Note — Update an existing note on the same page
+- 🗒️ Create and manage personal notes  
+- ✏️ Edit existing notes on the same page  
+- 🗑️ Delete notes easily  
+- 💾 MongoDB for data storage  
+- ⚡ FastAPI backend for high performance  
+- 🎨 Jinja2 templates for dynamic HTML rendering  
+- 🔔 Popup alert on successful note edit  
 
-❌ Delete Note — Remove unwanted notes from the database
+---
 
-👀 View Notes — Display all notes on a clean UI
-
-💬 Pop-up Notifications — Shows success messages for actions like Add, Update, and Delete
-
-⚡ Responsive Design using Bootstrap
-
-<br>
+## 🏗️ Tech Stack  
 
 | Component        | Technology                  |
 | ---------------- | --------------------------- |
@@ -28,85 +27,78 @@ It demonstrates full-stack development with server-side rendering, form handling
 | **ORM / Driver** | PyMongo                     |
 | **Language**     | Python 3.x                  |
 
+---
 
-<br>
-### 📂 Project Structure
+## 📦 Installation
 
+
+## 📦 Installation
+
+Follow these steps to set up the project locally 👇
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/yourusername/fastapi-notes-app.git
+cd fastapi-notes-app
+```
+
+### 2️⃣ Create a Virtual Environment  
+```bash
+python -m venv venv
+source venv/bin/activate   # On Mac/Linux
+venv\Scripts\activate      # On Windows
+```
+
+### 3️⃣ Install Dependencies  
+```bash
+pip install -r requirements.txt
+```
+
+### 4️⃣ Set Up MongoDB  
+- Make sure MongoDB is running locally or use a cloud service like MongoDB Atlas.
+- Update your MongoDB connection string in your FastAPI app if required.
+
+
+### 5️⃣ Run the Application  
+```bash
+uvicorn main:app --reload
+```
+
+---
+
+## 🌐 Access the App
+Once the server starts, open your browser and visit:  
+👉 http://127.0.0.1:8000  
+
+---
+
+## 📁 Project Structure
+```csharp
 Note-App/
-
 │
-
 ├── main.py
-
 ├── config/
-
 │   └── db.py
-
 ├── models/
-
 │   └── note.py
-
 ├── routes/
-
 │   └── note.py
-
 ├── schemas/
-
 │   └── note.py
-
 ├── templates/
-
 │   └── index.html
-
 ├── static/
-
 │   └── style.css
-
 ├── requirements.txt
-
 └── README.md
+```
 
+---
 
-<br>
-### 🧰 Requirements
+## 👨‍💻 Author  
 
-Python 3.8+
-
-MongoDB running locally or cloud (e.g., MongoDB Atlas)
-
-FastAPI
-
-Jinja2
-
-Uvicorn
-
-python-dotenv
-
-pymongo
-
-
-<br>
-### 📜 API Endpoints
-
-| Method | Endpoint            | Description         |
-| ------ | ------------------- | ------------------- |
-| `GET`  | `/`                 | View all notes      |
-| `POST` | `/add`              | Add new note        |
-| `GET`  | `/edit/{note_id}`   | Open note edit page |
-| `POST` | `/update/{note_id}` | Update note         |
-| `GET`  | `/delete/{note_id}` | Delete note         |
-
-
-
-<br>
-### 👨‍💻 Author
-
-Akshat Rastogi
-
-💼 Python Developer
-
-📍 Mumbai, India
-
-📧 akshatrastogi09@gmail.com
-
+Akshat Rastogi  
+💼 Python Developer  
+📍 Mumbai, India  
+📧 akshatrastogi09@gmail.com  
 🌐 [LinkedIn](https://www.linkedin.com/in/akshat-rastogi-83a347178/)
